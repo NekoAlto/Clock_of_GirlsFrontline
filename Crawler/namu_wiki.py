@@ -67,8 +67,7 @@ class Crawler:
     @staticmethod
     def _parse_dolls(cell):
         dolls = cell.findAll('a')
-        return [(i.text, i.get('href')) for i in dolls]
-
+        return [(i.text, i.get('href')) for i in dolls if not i.get('href').startswith('#')]
 
 if __name__ == '__main__':
     crawled = Crawler()
